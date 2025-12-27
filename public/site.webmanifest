@@ -1,0 +1,18 @@
+{
+  "name": "Al-Dalla",
+  "short_name": "Al-Dalla",
+  "description": "موزع رائد للسلع الاستهلاكية في العراق",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#38bfbe",
+  "background_color": "#0a1628",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "ar",
+  "dir": "rtl"
+}
