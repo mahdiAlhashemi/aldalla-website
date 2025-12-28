@@ -81,6 +81,16 @@ const arContent = {
       { name: 'NARI', type: 'منتجات شواء', country: 'اندونيسيا', color: '#ec4899', icon: 'fire' }
     ]
   },
+  wowProducts: {
+    badge: 'منتجات WOW Touch',
+    title: 'تجربة نظافة استثنائية',
+    subtitle: 'نتيجة ملموسة... وشعور جميل',
+    products: [
+      { name: 'WOW Touch Aqua Whisper', desc: 'منعم ومعطر الأقمشة - أكوا ويسبر', size: '925 مل', image: '/products/wow-aqua-whisper.jpg', color: '#0891b2' },
+      { name: 'WOW Touch Cozy Pink', desc: 'منعم ومعطر الأقمشة - كوزي بينك', size: '925 مل', image: '/products/wow-cozy-pink.jpg', color: '#ec4899' },
+      { name: 'WOW Touch Laundry Gel', desc: 'جل غسيل الملابس - لافندر', size: '3000 مل', image: '/products/wow-laundry-gel.jpg', color: '#8b5cf6' }
+    ]
+  },
   operations: {
     badge: 'قوة التشغيل',
     title: 'العمليات والتوزيع',
@@ -198,6 +208,16 @@ const enContent = {
       { name: 'Snack Pick', type: 'Snacks & Chips', country: 'Egypt', color: '#ef4444', icon: 'snack' },
       { name: 'ChaiTea', type: 'Health & Natural Drinks', country: 'Poland', color: '#8b5cf6', icon: 'tea' },
       { name: 'NARI', type: 'BBQ Products', country: 'Indonesia', color: '#ec4899', icon: 'fire' }
+    ]
+  },
+  wowProducts: {
+    badge: 'WOW Touch Products',
+    title: 'Exceptional Cleaning Experience',
+    subtitle: 'A tangible result... and a beautiful feeling',
+    products: [
+      { name: 'WOW Touch Aqua Whisper', desc: 'Fabric Softener & Scent Booster - Aqua Whisper', size: '925 ml', image: '/products/wow-aqua-whisper.jpg', color: '#0891b2' },
+      { name: 'WOW Touch Cozy Pink', desc: 'Fabric Softener & Scent Booster - Cozy Pink', size: '925 ml', image: '/products/wow-cozy-pink.jpg', color: '#ec4899' },
+      { name: 'WOW Touch Laundry Gel', desc: 'Laundry Gel Detergent - Lavender', size: '3000 ml', image: '/products/wow-laundry-gel.jpg', color: '#8b5cf6' }
     ]
   },
   operations: {
@@ -590,6 +610,63 @@ const submitForm = () => {
             <!-- Decorative line -->
             <div class="mt-6 h-1 rounded-full bg-gradient-to-r opacity-50 group-hover:opacity-100 transition-opacity"
                  :style="{ backgroundImage: `linear-gradient(to right, ${brand.color}, transparent)` }"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WOW Products Section -->
+    <section class="py-32 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
+      <div class="absolute inset-0 pattern-grid opacity-10"></div>
+
+      <!-- Decorative orbs -->
+      <div class="absolute top-1/4 left-[5%] w-[400px] h-[400px] bg-[#3b82f6]/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 right-[5%] w-[300px] h-[300px] bg-[#ec4899]/10 rounded-full blur-[100px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="inline-flex items-center gap-2 px-5 py-2 glass text-[#3b82f6] rounded-full text-sm font-bold mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+            {{ content.wowProducts.badge }}
+          </span>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">{{ content.wowProducts.title }}</h2>
+          <p class="text-xl text-gray-400 max-w-2xl mx-auto">{{ content.wowProducts.subtitle }}</p>
+        </div>
+
+        <!-- WOW Logo -->
+        <div class="flex justify-center mb-12">
+          <div class="glass rounded-3xl p-8 border border-white/10">
+            <img src="/products/wow-logo.jpg" alt="WOW Touch Logo" class="h-24 md:h-32 object-contain" />
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <div v-for="(product, i) in content.wowProducts.products" :key="i"
+               class="group glass rounded-3xl overflow-hidden card-hover border border-white/5 hover:border-white/20">
+            <!-- Product Image -->
+            <div class="relative h-80 overflow-hidden">
+              <img :src="product.image" :alt="product.name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent"></div>
+
+              <!-- Size Badge -->
+              <div class="absolute top-4 right-4 glass px-4 py-2 rounded-full">
+                <span class="text-white font-bold text-sm">{{ product.size }}</span>
+              </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">{{ product.name }}</h3>
+              <p class="text-gray-400 text-sm">{{ product.desc }}</p>
+
+              <!-- Color indicator -->
+              <div class="mt-4 flex items-center gap-2">
+                <div class="w-4 h-4 rounded-full" :style="{ backgroundColor: product.color }"></div>
+                <span class="text-gray-500 text-xs">{{ isRtl ? 'اللون المميز' : 'Signature Color' }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
