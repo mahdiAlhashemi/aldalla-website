@@ -26,7 +26,7 @@ const arContent = {
   },
   hero: {
     badge: 'الموزع الرائد في العراق',
-    title: 'الدلة',
+    title: 'الدالة',
     subtitle: 'شريكك الموثوق في سلاسل الإمداد',
     desc: 'نربط العلامات التجارية العالمية بالمستهلك العراقي من خلال شبكة توزيع متكاملة تغطي جميع المحافظات',
     cta1: 'استكشف خدماتنا',
@@ -42,7 +42,7 @@ const arContent = {
     badge: 'قصة نجاحنا',
     title: 'من نحن',
     subtitle: 'الجسر الموثوق بين العلامات العالمية والمستهلك المحلي',
-    desc: 'شركة الدلة للتجارة العامة المحدودة من الشركات العراقية الرائدة المتخصصة في توزيع السلع الاستهلاكية السريعة الحركة (FMCG)، تشمل منتجاتنا الأغذية والمشروبات والبهارات ومنتجات التنظيف والعناية المنزلية.',
+    desc: 'شركة الدالة للتجارة العامة المحدودة من الشركات العراقية الرائدة المتخصصة في توزيع السلع الاستهلاكية السريعة الحركة (FMCG)، تشمل منتجاتنا الأغذية والمشروبات والبهارات ومنتجات التنظيف والعناية المنزلية.',
     features: [
       { icon: 'target', title: 'هدفنا', desc: 'بناء شبكة توزيع قوية تمتد إلى جميع محافظات العراق' },
       { icon: 'eye', title: 'رؤيتنا', desc: 'الريادة في قطاع التوزيع من خلال الشفافية والابتكار' },
@@ -99,7 +99,7 @@ const arContent = {
     ]
   },
   whyUs: {
-    title: 'لماذا الدلة؟',
+    title: 'لماذا الدالة؟',
     items: [
       { icon: 'network', title: 'انتشار وطني', desc: 'تغطية شاملة لجميع المحافظات' },
       { icon: 'handshake', title: 'شراكات موثوقة', desc: 'مع علامات عالمية رائدة' },
@@ -130,7 +130,7 @@ const arContent = {
   footer: {
     desc: 'شركة عراقية رائدة في توزيع السلع الاستهلاكية',
     rights: 'جميع الحقوق محفوظة',
-    company: 'شركة الدلة للتجارة العامة المحدودة'
+    company: 'شركة الدالة للتجارة العامة المحدودة'
   }
 }
 
@@ -279,7 +279,7 @@ const submitForm = () => {
           <a href="#home" class="flex items-center gap-4 group">
             <img src="./assets/logo.svg" alt="Al-Dalla Logo" class="h-16 w-auto group-hover:scale-105 transition-transform" />
             <div class="hidden sm:block">
-              <h1 class="text-xl font-bold text-white">{{ isRtl ? 'الدلة' : 'Al-Dalla' }}</h1>
+              <h1 class="text-xl font-bold text-white">{{ isRtl ? 'الدالة' : 'Al-Dalla' }}</h1>
               <p class="text-xs text-[#38bfbe] font-medium">{{ isRtl ? 'الموزع الرائد' : 'Leading Distributor' }}</p>
             </div>
           </a>
