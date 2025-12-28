@@ -271,38 +271,40 @@ const submitForm = () => {
 
 <template>
   <div :dir="isRtl ? 'rtl' : 'ltr'" class="min-h-screen bg-[#0a1628]">
-    <!-- Navbar -->
-    <nav :class="['fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'glass-dark py-3' : 'bg-transparent py-6']">
+    <!-- Navbar - Corporate Navy Style -->
+    <nav :class="['fixed top-0 left-0 right-0 z-50 transition-all duration-500', isScrolled ? 'bg-[#0a1628]/98 backdrop-blur-2xl shadow-xl shadow-black/10 py-4' : 'bg-transparent py-6']">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex items-center justify-between">
-          <!-- Logo -->
-          <div class="flex items-center gap-4">
-            <img src="./assets/logo.svg" alt="Al-Dalla Logo" class="h-14 w-auto" />
-          </div>
-
-          <!-- Desktop Nav -->
-          <div class="hidden lg:flex items-center">
-            <div class="flex items-center gap-1 glass rounded-2xl px-2 py-2">
-              <a v-for="(item, key) in content.nav" :key="key" :href="`#${key}`"
-                 class="px-5 py-2.5 text-gray-300 hover:text-white hover:bg-white/10 font-medium transition-all rounded-xl text-sm">
-                {{ item }}
-              </a>
+          <!-- Logo with Company Name -->
+          <a href="#home" class="flex items-center gap-4 group">
+            <img src="./assets/logo.svg" alt="Al-Dalla Logo" class="h-16 w-auto group-hover:scale-105 transition-transform" />
+            <div class="hidden sm:block">
+              <h1 class="text-xl font-bold text-white">{{ isRtl ? 'الدلة' : 'Al-Dalla' }}</h1>
+              <p class="text-xs text-[#38bfbe] font-medium">{{ isRtl ? 'الموزع الرائد' : 'Leading Distributor' }}</p>
             </div>
+          </a>
+
+          <!-- Desktop Nav - Horizontal Pills -->
+          <div class="hidden lg:flex items-center gap-2">
+            <a v-for="(item, key) in content.nav" :key="key" :href="`#${key}`"
+               class="px-5 py-3 text-gray-300 hover:text-white hover:bg-[#38bfbe]/10 font-medium transition-all rounded-xl text-sm border border-transparent hover:border-[#38bfbe]/20">
+              {{ item }}
+            </a>
           </div>
 
           <!-- Actions -->
-          <div class="hidden md:flex items-center gap-3">
-            <button @click="toggleLanguage" class="w-11 h-11 rounded-xl font-bold transition-all bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10 flex items-center justify-center text-sm">
+          <div class="hidden md:flex items-center gap-4">
+            <button @click="toggleLanguage" class="w-12 h-12 rounded-xl font-bold transition-all bg-[#38bfbe]/10 text-[#38bfbe] hover:bg-[#38bfbe]/20 border border-[#38bfbe]/20 flex items-center justify-center">
               {{ currentLang === 'ar' ? 'EN' : 'ع' }}
             </button>
-            <a href="#contact" class="btn-primary text-sm py-3 px-6">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-              {{ isRtl ? 'تواصل معنا' : 'Contact' }}
+            <a href="#contact" class="btn-primary py-3.5 px-7">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" /></svg>
+              {{ isRtl ? 'شراكة تجارية' : 'Partnership' }}
             </a>
           </div>
 
           <!-- Mobile Menu Button -->
-          <button @click="isMenuOpen = !isMenuOpen" class="lg:hidden p-3 text-white glass rounded-xl">
+          <button @click="isMenuOpen = !isMenuOpen" class="lg:hidden p-3 text-white bg-[#38bfbe]/10 hover:bg-[#38bfbe]/20 rounded-xl border border-[#38bfbe]/20 transition-all">
             <svg v-if="!isMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
@@ -310,11 +312,14 @@ const submitForm = () => {
 
         <!-- Mobile Menu -->
         <transition enter-active-class="transition duration-300 ease-out" enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition duration-200 ease-in" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
-          <div v-show="isMenuOpen" class="lg:hidden mt-4 glass-dark rounded-2xl p-6 border border-white/10">
+          <div v-show="isMenuOpen" class="lg:hidden mt-4 bg-[#0f1d32] rounded-2xl p-6 border border-white/10 shadow-2xl">
             <div class="flex flex-col gap-2">
-              <a v-for="(item, key) in content.nav" :key="key" :href="`#${key}`" @click="isMenuOpen = false" class="font-medium text-gray-300 hover:text-white py-3 px-4 hover:bg-white/5 rounded-xl transition-all">{{ item }}</a>
+              <a v-for="(item, key) in content.nav" :key="key" :href="`#${key}`" @click="isMenuOpen = false" class="font-medium text-gray-300 hover:text-white py-3.5 px-5 hover:bg-[#38bfbe]/10 rounded-xl transition-all text-lg">{{ item }}</a>
               <hr class="border-white/10 my-3">
-              <button @click="toggleLanguage" class="text-start font-medium text-[#38bfbe] py-3 px-4">{{ currentLang === 'ar' ? 'English' : 'عربي' }}</button>
+              <div class="flex items-center gap-3">
+                <button @click="toggleLanguage" class="flex-1 py-3.5 px-5 bg-[#38bfbe]/10 rounded-xl font-medium text-[#38bfbe] transition-all">{{ currentLang === 'ar' ? 'English' : 'عربي' }}</button>
+                <a href="#contact" @click="isMenuOpen = false" class="flex-1 btn-primary text-center justify-center py-3.5">{{ isRtl ? 'تواصل' : 'Contact' }}</a>
+              </div>
             </div>
           </div>
         </transition>
